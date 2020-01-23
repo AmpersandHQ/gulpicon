@@ -3,7 +3,7 @@ var log = require('fancy-log');
 var Grunticon = require( 'grunticon-lib' );
 
 module.exports = function( files, config ) {
-  'use strict";
+  'use strict';
 
   return function(callback = () => {}) {
 
@@ -31,7 +31,7 @@ module.exports = function( files, config ) {
 
     if( !output || output && output === '' ) {
       log('The destination must be a directory');
-      callback( false );
+      callback(false);
     }
 
     var gicon = new Grunticon(files, config.dest, config);
