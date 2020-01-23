@@ -9,9 +9,9 @@ module.exports = function( files, config ) {
 
     // get the config
     config.logger = {
-      verbose: config.verbose || function() {},
-      fatal: function() {},
-      ok: function() {}
+      verbose: config.verbose ? log.info : () => {},
+      fatal: config.verbose ? log.error : () => {},
+      ok: config.verbose ? log : () => {}
     };
 
     // just a quick starting message
