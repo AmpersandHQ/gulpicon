@@ -1,11 +1,11 @@
 /*global require:true*/
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 var Grunticon = require( 'grunticon-lib' );
 
 module.exports = function( files, config ) {
-  "use strict";
+  'use strict";
 
-  return function(callback) {
+  return function(callback = () => {}) {
 
     // get the config
     config.logger = {
@@ -15,22 +15,22 @@ module.exports = function( files, config ) {
     };
 
     // just a quick starting message
-    gutil.log( "Look, it's a gulpicon!" );
+    log('Look, it\'s a gulpicon!');
 
     files = files.filter( function( file ){
       return file.match( /png|svg/ );
     });
 
     if( files.length === 0 ){
-      gutil.log( "Grunticon has no files to read!" );
-      callback( false );
+      log.warn('Grunticon has no files to read!');
+      callback(false);
       return;
     }
 
     var output = config.dest;
 
-    if( !output || output && output === "" ){
-      gutil.log("The destination must be a directory");
+    if( !output || output && output === '' ) {
+      log('The destination must be a directory');
       callback( false );
     }
 
