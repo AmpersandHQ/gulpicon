@@ -1,6 +1,6 @@
 /*global require:true*/
 var log = require('fancy-log');
-var Grunticon = require( 'grunticon-lib' );
+var Grunticon = require('grunticon-lib');
 
 module.exports = function(files, config) {
   'use strict';
