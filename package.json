@@ -1,6 +1,6 @@
 {
   "name": "@ampersandhq/gulpicon",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A gulp task wrapper for grunticon-lib.",
   "license": "MIT",
   "repository": "filamentgroup/gulpicon",
@@ -21,9 +21,9 @@
     "gulpplugin"
   ],
   "dependencies": {
-    "gulp-util": "^3.0.5",
-    "through2": "^0.6.5",
-    "grunticon-lib": "^1.2.1"
+    "fancy-log": "^1.3.3",
+    "grunticon-lib": "git+https://github.com/filamentgroup/grunticon-lib.git",
+    "through2": "^0.6.5"
   },
   "devDependencies": {
     "glob": "^5.0.10",

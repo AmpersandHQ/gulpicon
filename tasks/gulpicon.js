@@ -1,41 +1,40 @@
 /*global require:true*/
-var gutil = require('gulp-util');
-var Grunticon = require( 'grunticon-lib' );
+var log = require('fancy-log');
+var Grunticon = require('grunticon-lib');
 
-module.exports = function( files, config ) {
-  "use strict";
+module.exports = function(files, config) {
+  'use strict';
 
   return function(callback) {
-
     // get the config
     config.logger = {
-      verbose: config.verbose || function() {},
-      fatal: function() {},
-      ok: function() {}
+      verbose: config.verbose ? log.info : () => {},
+      fatal: config.verbose ? log.error : () => {},
+      ok: config.verbose ? log : () => {}
     };
 
     // just a quick starting message
-    gutil.log( "Look, it's a gulpicon!" );
+    log('Look, it\'s a gulpicon!');
 
-    files = files.filter( function( file ){
+    files = files.filter( function(file){
       return file.match( /png|svg/ );
     });
 
     if( files.length === 0 ){
-      gutil.log( "Grunticon has no files to read!" );
-      callback( false );
+      log.warn('Grunticon has no files to read!');
+      callback(false);
       return;
     }
 
     var output = config.dest;
 
-    if( !output || output && output === "" ){
-      gutil.log("The destination must be a directory");
-      callback( false );
+    if(!output || output && output === '') {
+      log('The destination must be a directory');
+      callback(false);
     }
 
     var gicon = new Grunticon(files, config.dest, config);
 
-    gicon.process( callback );
+    gicon.process(callback);
   };
 };
