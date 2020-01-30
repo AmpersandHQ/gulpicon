@@ -1,6 +1,6 @@
 {
   "name": "@ampersandhq/gulpicon",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A gulp task wrapper for grunticon-lib.",
   "license": "MIT",
   "repository": "filamentgroup/gulpicon",
